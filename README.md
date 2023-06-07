@@ -7,6 +7,20 @@ Klonen Sie dieses Repository direkt in Eclipse und importieren Sie das Projekt. 
 
 ## Aufgabe 1
 
+In der Sitzung haben wir über die Datenstruktur `Tree` geredet, und eine Implementierung der sog. Tiefensuche ("depth-first search") vorgenommen, die einfach jeden Inhalt des Baumes ausgibt. Sie finden den Code dazu in der Klasse `idh.java.Tree`, die Methode `dfs()` implementiert die Tiefensuche. Verändern Sie die Implementierung der Methode so, dass die Ausgabe nicht "flach" in der Konsole erscheint, sondern die Baumstruktur durch Einrückung wiedergibt.
+
+Der Fahrzeugbaum aus der Sitzung z.B. sollte dann so aussehen:
+
+```
+wheeled vehicle
+  bike
+    tandem
+    e-bike
+  buggy
+```
+
+## Aufgabe 2
+
 Die ["Türme von Hanoi"](https://de.wikipedia.org/wiki/Türme_von_Hanoi) kennen wir ja bereits aus Übung 6. Heute wollen wir das Programm so erweitern, dass es auch (automatisch) gelöst wird. Dafür verwenden wir eine rekursive Strategie:
 
 1. Wir wissen, wie wir eine Scheibe (`n=1`) von einem Stab auf einen anderen verschieben können (Basisfall)
@@ -25,19 +39,7 @@ Hinweise:
 - Jeder einzelne Schritt sollte natürlich legal sein, d.h. den Anforderungen an das Spiel genügen.
 
 
-## Aufgabe 2
 
-In der Sitzung haben wir über die Datenstruktur `Tree` geredet, und eine Implementierung der sog. Tiefensuche ("depth-first search") vorgenommen, die einfach jeden Inhalt des Baumes ausgibt. Sie finden den Code dazu in der Klasse `idh.java.Tree`, die Methode `dfs()` implementiert die Tiefensuche. Verändern Sie die Implementierung der Methode so, dass die Ausgabe nicht "flach" in der Konsole erscheint, sondern die Baumstruktur durch Einrückung wiedergibt.
-
-Der Fahrzeugbaum aus der Sitzung z.B. sollte dann so aussehen:
-
-```
-wheeled vehicle
-  bike
-    tandem
-    e-bike
-  buggy
-```
 
 ----
 
