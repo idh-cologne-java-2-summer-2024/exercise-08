@@ -19,7 +19,7 @@ wheeled vehicle
   buggy
 ```
 
-## Aufgabe 2
+## Aufgabe 2 (optional)
 
 Die ["Türme von Hanoi"](https://de.wikipedia.org/wiki/Türme_von_Hanoi) kennen wir ja bereits aus Übung 6. Heute wollen wir das Programm so erweitern, dass es auch (automatisch) gelöst wird. Dafür verwenden wir eine rekursive Strategie:
 
