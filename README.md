@@ -19,12 +19,12 @@ wheeled vehicle
   buggy
 ```
 
-## Aufgabe 2 (optional)
+## Aufgabe 2
 
 Die ["Türme von Hanoi"](https://de.wikipedia.org/wiki/Türme_von_Hanoi) kennen wir ja bereits aus Übung 6. Heute wollen wir das Programm so erweitern, dass es auch (automatisch) gelöst wird. Dafür verwenden wir eine rekursive Strategie:
 
 1. Wir wissen, wie wir eine Scheibe (`n=1`) von einem Stab auf einen anderen verschieben können (Basisfall)
-2. Wenn wir einen Turm aus `n` (mit `n>1`) Scheiben von Stab `l` auf Stab `r` verschieben wollen, können wir a) `n-1` Scheiben von `l` auf `m` legen, b) die eine übrige Scheibe von `l` auf `r` legen, und c) `n-1` Scheiben von `m` auf `r` legen. Dabei handelt es sich dann um den Rekursionsschritt, den wir allerdings mehrfach benötigen.
+2. Wenn wir einen Turm aus `n` (mit `n>1`) Scheiben von Stab `l` auf Stab `r` verschieben wollen, können wir a) `n-1` Scheiben von `l` auf `m` legen, b) die eine übrige Scheibe von `l` auf `r` legen, und c) `n-1` Scheiben von `m` auf `r` legen. Dabei handelt es sich dann um den Rekursionsschritt, den wir allerdings zweifach benötigen.
 
 Implementieren Sie dieses Verfahren in Java! Sie finden dazu die Referenzlösung von Übung 6 in der Klasse `idh.java.Hanoi`. Diese ist außerdem erweitert um eine Methode `runAutomatically()`, die wir statt der alten Methode `run()` innerhalb der `main()`-Funktion aufrufen.
 
