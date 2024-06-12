@@ -39,8 +39,6 @@ Hinweise:
 - Jeder einzelne Schritt sollte natürlich legal sein, d.h. den Anforderungen an das Spiel genügen.
 
 
-
-
 ----
 
 Wenn Sie fertig sind, committen Sie alle Ihre Änderungen am Quellcode, und pushen Sie den neuen Branch auf das remote namens `origin` (= GitHub). 
