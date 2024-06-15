@@ -70,11 +70,28 @@ public class Tree<T> {
      * Iterate over the tree, printing out each node value
      */
     public void dfs() {
-	System.out.println(this.value);
+	//mit int-size evtl. verbessern, dann kann man bei einer bestimmten größe unterscheiden. 
+    	
+    	 if(children.size()>1 ) {
+    		System.out.println("--" + this.value);
+    			}
+    	
+    	 else if (children.isEmpty()) {
+     		System.out.println("----"+this.value);
+     	}
+	
 	for (Tree<T> child : children) {
 	    child.dfs();
+	    
+	
+	    
+	    
+	    
 	}
     }
+    
+    // Wenn das Children ding kein weiteren Children hat, dann so ausgeben, wenn es so und so viele Children hat, dann ohne Einrückung 
+    // ausgeben
 
     public static void main(String[] args) {
 
