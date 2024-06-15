@@ -69,10 +69,16 @@ public class Tree<T> {
     /**
      * Iterate over the tree, printing out each node value
      */
+    
+    //Aufgabe 1
     public void dfs() {
-	System.out.println(this.value);
+    	dfs(0);
+    }
+    
+    private void dfs(int einrueckung) {
+	System.out.println("   ".repeat(einrueckung)+ this.value);
 	for (Tree<T> child : children) {
-	    child.dfs();
+	    child.dfs(einrueckung + 1);
 	}
     }
 
