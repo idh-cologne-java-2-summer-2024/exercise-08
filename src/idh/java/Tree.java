@@ -69,10 +69,10 @@ public class Tree<T> {
     /**
      * Iterate over the tree, printing out each node value
      */
-    public void dfs() {
-	System.out.println(this.value);
+    public void dfs(int levels) {
+	System.out.println(" ".repeat(levels) + this.value);
 	for (Tree<T> child : children) {
-	    child.dfs();
+	    child.dfs(levels +1 );
 	}
     }
 
@@ -89,7 +89,7 @@ public class Tree<T> {
 	bike.children().add(tandem);
 	bike.children().add(ebike);
 
-	wheeled_vehicle.dfs();
+	wheeled_vehicle.dfs(0);
     }
 
 }
