@@ -22,8 +22,10 @@ public class Tree<T> {
      * @param value The payload value
      */
     public Tree(T value) {
+    	
 	this.value = value;
 	this.children = new HashSet<Tree<T>>();
+	
     }
 
     /**
@@ -69,10 +71,20 @@ public class Tree<T> {
     /**
      * Iterate over the tree, printing out each node value
      */
+    
     public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
+    	dfs(0);
+    }
+    
+    private void dfs(int level) {
+    	 for (int i = 0; i < level; i++) {
+             System.out.print("  ");
+         }
+         System.out.println(this.value);
+         
+         // Recursively print each child
+         for (Tree<T> child : children) {
+             child.dfs(level + 1);
 	}
     }
 
