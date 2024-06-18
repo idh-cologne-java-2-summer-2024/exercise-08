@@ -66,14 +66,20 @@ public class Tree<T> {
 	return children;
     }
 
+    public void dfs() {
+        dfs(0);
+    }
     /**
      * Iterate over the tree, printing out each node value
      */
-    public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
-	}
+    private void dfs(int level) {
+        for (int i = 0; i < level; i++) {
+            System.out.print("  ");
+        }
+        System.out.println(this.value);
+        for (Tree<T> child : children) {
+            child.dfs(level + 1);
+        }
     }
 
     public static void main(String[] args) {
