@@ -154,14 +154,10 @@ public class Hanoi {
     private void movePieces(int numberOfPieces, char from, char to, char util) {
     	if(numberOfPieces == 1) {
     		movePiece(from, to);
-    		System.out.println(this);
     	} else {
-    		 movePieces(numberOfPieces - 1, from, util, to); // Schritt a): Verschiebe n-1 Scheiben von 'from' nach 'util'
-    		 System.out.println(this);
-    	        movePiece(from, to); // Schritt b): Bewege die größte Scheibe von 'from' nach 'to'
-    	        System.out.println(this);
-    	        movePieces(numberOfPieces - 1, util, to, from); // Schritt c): Verschiebe n-1 Scheiben von 'util' nach 'to'
-    	        System.out.println(this);
+    			movePieces(numberOfPieces - 1, from, util, to);
+    	        movePiece(from, to); 
+    	        movePieces(numberOfPieces - 1, util, to, from); 
     	    }
     	}
     }
