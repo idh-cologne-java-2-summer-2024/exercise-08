@@ -11,6 +11,7 @@ public class Tree<T> {
      */
     T value;
 
+    int sum = 0;
     /**
      * The set of children this tree node has
      */
@@ -69,11 +70,11 @@ public class Tree<T> {
     /**
      * Iterate over the tree, printing out each node value
      */
-    public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
-	}
+    public void dfs(String indent) {
+        System.out.println(indent + this.value);
+        for (Tree<T> child : children) {
+            child.dfs(indent + " "); 
+        }
     }
 
     public static void main(String[] args) {
@@ -89,7 +90,7 @@ public class Tree<T> {
 	bike.children().add(tandem);
 	bike.children().add(ebike);
 
-	wheeled_vehicle.dfs();
+	wheeled_vehicle.dfs("");
     }
 
 }
