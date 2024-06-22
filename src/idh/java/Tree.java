@@ -14,14 +14,14 @@ public class Tree<T> {
     /**
      * The set of children this tree node has
      */
-    Set<Tree<T>> children;
+    Set<Tree<T>> children; //Kindknoten
 
     /**
      * Constructs a new tree without children.
      * 
      * @param value The payload value
      */
-    public Tree(T value) {
+    public Tree(T value) { //Konstruktur; Neue Knoten/Bäume erzeugen
 	this.value = value;
 	this.children = new HashSet<Tree<T>>();
     }
@@ -34,7 +34,7 @@ public class Tree<T> {
      *                 internally, i.e., each child node is unique. Also note that
      *                 the children are of type Tree<T>.
      */
-    public Tree(T value, Collection<Tree<T>> children) {
+    public Tree(T value, Collection<Tree<T>> children) { 
 	this.value = value;
 	this.children = new HashSet<Tree<T>>(children);
     }
@@ -62,17 +62,22 @@ public class Tree<T> {
      * 
      * @return
      */
-    public Set<Tree<T>> children() {
-	return children;
+    public Set<Tree<T>> children() {  //Methode um Kinder am Baum zu ergänzen; Existierende Bäume zusammensetzen
+	return children;  //Gibt Menge zurück; In diese Menge werden Kinder reingesetzt
     }
 
     /**
      * Iterate over the tree, printing out each node value
      */
-    public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
+    public void dfs(int depth) { //Depth-First Search; Geben jeden Knoten aus
+    	for (int i=0; i < depth; i++) {
+    		System.out.println("  ");
+    	}
+    	
+    	System.out.println(this.value); 
+    	
+	for (Tree<T> child : children) { 
+	    child.dfs(depth + 1);
 	}
     }
 
@@ -84,12 +89,12 @@ public class Tree<T> {
 	Tree<String> buggy = new Tree<String>("buggy");
 	Tree<String> wheeled_vehicle = new Tree<String>("wheeled vehicle");
 
-	wheeled_vehicle.children().add(bike);
+	wheeled_vehicle.children().add(bike); //An entsprechende Children Menge können wir entsprechenden Knoten reinsetzen
 	wheeled_vehicle.children().add(buggy);
 	bike.children().add(tandem);
 	bike.children().add(ebike);
 
-	wheeled_vehicle.dfs();
+	wheeled_vehicle.dfs(0); 
     }
 
 }
