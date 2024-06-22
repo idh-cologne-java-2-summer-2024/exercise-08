@@ -17,7 +17,7 @@ public class Hanoi {
      * set of pieces.
      */
     public Hanoi() {
-	for (int i = 3; i < 10; i++) {
+	for (int i = 3; i < 10; i++) {  //Oder i=1 und i<4 für Vereinfachung
 	    left.addLast(i);
 	}
     }
@@ -152,7 +152,17 @@ public class Hanoi {
     }
 
     private void movePieces(int numberOfPieces, char from, char to, char util) {
-	// TODO: Implement me!
+    	if (numberOfPieces == 1) {
+    		movePiece(from, to); //Im normalen/Basis Fall
+    	}
+    		else { //numberOfPieces > 1
+    			movePieces(numberOfPieces-1, from, util, to);
+    			movePiece(from, to);
+    			movePieces(numberOfPieces-1, util, to, from);
+    			System.out.println(this);
+    			
+    			
+    	}
     }
 
 }
