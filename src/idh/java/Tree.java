@@ -70,11 +70,23 @@ public class Tree<T> {
      * Iterate over the tree, printing out each node value
      */
     public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
-	}
+        dfs(0);
     }
+
+    /**
+     * Helper method to perform DFS with indentation
+     * 
+     * @param depth The current depth level in the tree
+     */
+    private void dfs(int depth) {
+        // Print the current node value with indentation
+        System.out.println("  ".repeat(depth) + this.value);
+        // Recursively call dfs on each child with increased depth
+        for (Tree<T> child : children) {
+            child.dfs(depth + 1);
+        }
+    }
+
 
     public static void main(String[] args) {
 
