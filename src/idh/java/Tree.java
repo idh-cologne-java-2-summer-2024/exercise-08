@@ -70,10 +70,24 @@ public class Tree<T> {
      * Iterate over the tree, printing out each node value
      */
     public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
-	}
+    	 dfsHelper(this, 0);
+    }
+
+    /**
+     * Helper method for dfs to handle indentation
+     * 
+     * @param node  The current node
+     * @param depth The current depth of the node
+     */
+    private void dfsHelper(Tree<T> node, int depth) {
+        for (int i = 0; i < depth; i++) {
+            System.out.print("  ");
+        }
+        System.out.println(node.value);
+
+        for (Tree<T> child : node.children) {
+            dfsHelper(child, depth + 1);
+        }
     }
 
     public static void main(String[] args) {

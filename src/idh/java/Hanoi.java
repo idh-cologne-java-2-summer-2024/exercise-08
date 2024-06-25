@@ -60,6 +60,9 @@ public class Hanoi {
 	default:
 	    throw new IllegalArgumentException("Argument " + to + " is not allowed.");
 	}
+	
+	System.out.println(this);
+	
     }
 
     /**
@@ -152,7 +155,12 @@ public class Hanoi {
     }
 
     private void movePieces(int numberOfPieces, char from, char to, char util) {
-	// TODO: Implement me!
-    }
-
-}
+    	if(numberOfPieces == 1) {
+    	      movePiece(from, to);
+    	     } else {
+    	       movePieces(numberOfPieces - 1, from, util, to);
+    	             movePiece(from, to); 
+    	             movePieces(numberOfPieces - 1, util, to, from); 
+    	        }
+    	    }
+	}
