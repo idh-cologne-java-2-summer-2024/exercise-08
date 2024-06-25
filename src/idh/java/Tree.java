@@ -10,20 +10,20 @@ public class Tree<T> {
      * The payload value for this tree node
      */
     T value;
-
+    
     /**
      * The set of children this tree node has
      */
     Set<Tree<T>> children;
-
+    
     /**
      * Constructs a new tree without children.
      * 
      * @param value The payload value
      */
     public Tree(T value) {
-	this.value = value;
-	this.children = new HashSet<Tree<T>>();
+    	this.value = value;
+    	this.children = new HashSet<Tree<T>>();
     }
 
     /**
@@ -35,8 +35,8 @@ public class Tree<T> {
      *                 the children are of type Tree<T>.
      */
     public Tree(T value, Collection<Tree<T>> children) {
-	this.value = value;
-	this.children = new HashSet<Tree<T>>(children);
+    	this.value = value;
+    	this.children = new HashSet<Tree<T>>(children);
     }
 
     /**
@@ -45,7 +45,7 @@ public class Tree<T> {
      * @return The payload value
      */
     public T get() {
-	return value;
+    	return value;
     }
 
     /**
@@ -54,7 +54,7 @@ public class Tree<T> {
      * @param value The new value
      */
     public void set(T value) {
-	this.value = value;
+    	this.value = value;
     }
 
     /**
@@ -63,33 +63,35 @@ public class Tree<T> {
      * @return
      */
     public Set<Tree<T>> children() {
-	return children;
+    	return children;
     }
 
     /**
      * Iterate over the tree, printing out each node value
+     * @param t 
      */
-    public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
-	}
+    public void dfs(String t) {
+    	System.out.println(t + this.value);
+    	for (Tree<T> child : children) {
+    		child.dfs(t + "   ");
+   		}
     }
 
     public static void main(String[] args) {
 
-	Tree<String> ebike = new Tree<String>("e-bike");
-	Tree<String> tandem = new Tree<String>("tandem");
-	Tree<String> bike = new Tree<String>("bike");
-	Tree<String> buggy = new Tree<String>("buggy");
-	Tree<String> wheeled_vehicle = new Tree<String>("wheeled vehicle");
+    	Tree<String> ebike = new Tree<String>("e-bike");
+    	Tree<String> tandem = new Tree<String>("tandem");
+    	Tree<String> bike = new Tree<String>("bike");
+    	Tree<String> buggy = new Tree<String>("buggy");
+    	Tree<String> wheeled_vehicle = new Tree<String>("wheeled vehicle");
 
-	wheeled_vehicle.children().add(bike);
-	wheeled_vehicle.children().add(buggy);
-	bike.children().add(tandem);
-	bike.children().add(ebike);
+    	wheeled_vehicle.children().add(bike);
+    	wheeled_vehicle.children().add(buggy);
+    	bike.children().add(tandem);
+    	bike.children().add(ebike);
 
-	wheeled_vehicle.dfs();
+        String t = "";
+    	wheeled_vehicle.dfs(t);
     }
 
 }
