@@ -70,10 +70,19 @@ public class Tree<T> {
      * Iterate over the tree, printing out each node value
      */
     public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
-	}
+	dfs(0);
+    }
+    
+    /**
+     * Iterate over the tree, printing out ech node value with indentation
+     */ 
+    private void dfs(int level) {
+    	// Print the current node value with indentation
+    	System.out.println(" ".repeat(level) + this.value);
+    	// Recur for all children with incremented indentation level
+    	for (Tree<T> child : children) {
+    		child.dfs(level + 1);
+    	}
     }
 
     public static void main(String[] args) {
