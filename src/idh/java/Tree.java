@@ -22,8 +22,8 @@ public class Tree<T> {
      * @param value The payload value
      */
     public Tree(T value) {
-	this.value = value;
-	this.children = new HashSet<Tree<T>>();
+        this.value = value;
+        this.children = new HashSet<Tree<T>>();
     }
 
     /**
@@ -35,8 +35,8 @@ public class Tree<T> {
      *                 the children are of type Tree<T>.
      */
     public Tree(T value, Collection<Tree<T>> children) {
-	this.value = value;
-	this.children = new HashSet<Tree<T>>(children);
+        this.value = value;
+        this.children = new HashSet<Tree<T>>(children);
     }
 
     /**
@@ -45,7 +45,7 @@ public class Tree<T> {
      * @return The payload value
      */
     public T get() {
-	return value;
+        return value;
     }
 
     /**
@@ -54,7 +54,7 @@ public class Tree<T> {
      * @param value The new value
      */
     public void set(T value) {
-	this.value = value;
+        this.value = value;
     }
 
     /**
@@ -63,33 +63,48 @@ public class Tree<T> {
      * @return
      */
     public Set<Tree<T>> children() {
-	return children;
+        return children;
     }
 
     /**
-     * Iterate over the tree, printing out each node value
+     * Iterate over the tree, printing out each node value with indentation
      */
     public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
-	}
+        dfsHelper(this, 0);
+    }
+
+    /**
+     * Helper method for dfs to handle indentation
+     * 
+     * @param node  The current node
+     * @param depth The current depth of the node
+     */
+    private void dfsHelper(Tree<T> node, int depth) {
+        // Print the value of the current node with the appropriate indentation
+        for (int i = 0; i < depth; i++) {
+            System.out.print("  "); // Print two spaces for each level of depth
+        }
+        System.out.println(node.value);
+
+        // Recursively call dfsHelper on each child with an increased depth
+        for (Tree<T> child : node.children) {
+            dfsHelper(child, depth + 1);
+        }
     }
 
     public static void main(String[] args) {
 
-	Tree<String> ebike = new Tree<String>("e-bike");
-	Tree<String> tandem = new Tree<String>("tandem");
-	Tree<String> bike = new Tree<String>("bike");
-	Tree<String> buggy = new Tree<String>("buggy");
-	Tree<String> wheeled_vehicle = new Tree<String>("wheeled vehicle");
+        Tree<String> ebike = new Tree<String>("e-bike");
+        Tree<String> tandem = new Tree<String>("tandem");
+        Tree<String> bike = new Tree<String>("bike");
+        Tree<String> buggy = new Tree<String>("buggy");
+        Tree<String> wheeled_vehicle = new Tree<String>("wheeled vehicle");
 
-	wheeled_vehicle.children().add(bike);
-	wheeled_vehicle.children().add(buggy);
-	bike.children().add(tandem);
-	bike.children().add(ebike);
+        wheeled_vehicle.children().add(bike);
+        wheeled_vehicle.children().add(buggy);
+        bike.children().add(tandem);
+        bike.children().add(ebike);
 
-	wheeled_vehicle.dfs();
+        wheeled_vehicle.dfs();
     }
-
 }
