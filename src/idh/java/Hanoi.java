@@ -151,8 +151,14 @@ public class Hanoi {
 	System.out.println(this);
     }
 
-    private void movePieces(int numberOfPieces, char from, char to, char util) {
-	// TODO: Implement me!
+    private void movePieces(int pieces, char from, char to, char t) {
+        if (pieces == 1) {
+            movePiece(from, to);
+            return;
+        }
+        movePieces(pieces - 1, from, t, to);
+        movePiece(from, to);
+        movePieces(pieces - 1, t, to, from);
     }
 
 }

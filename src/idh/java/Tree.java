@@ -10,6 +10,7 @@ public class Tree<T> {
      * The payload value for this tree node
      */
     T value;
+    
 
     /**
      * The set of children this tree node has
@@ -70,12 +71,25 @@ public class Tree<T> {
     	return !this.children.isEmpty();
     }
     
+    public int size() {
+    	if (this.children.isEmpty()) {
+    		return 1;
+    	} else {
+    		int sum = 0;
+    		for (Tree<T> child : children) {
+    			sum = sum + child.size();
+    	} 
+    		return sum;
+    	}
+    	
+    }
+    
     /**
      * Iterate over the tree, printing out each node value
      */
     public void dfs() {
-    int c = 0;
     System.out.println(this.value);
+    int c = 0;
     if (this.hasChildren()) {
     	c++;
     } else { 
