@@ -70,10 +70,17 @@ public class Tree<T> {
      * Iterate over the tree, printing out each node value
      */
     public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
-	}
+    	dfs(0);
+    }
+    
+    private void dfs(int indent) {
+        for (int i = 0; i < indent; i++) {
+            System.out.print("  "); 
+        }
+        System.out.println(this.value);
+        for (Tree<T> child : children) {
+            child.dfs(indent + 1);
+        }
     }
 
     public static void main(String[] args) {
