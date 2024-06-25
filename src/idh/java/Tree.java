@@ -70,11 +70,24 @@ public class Tree<T> {
      * Iterate over the tree, printing out each node value
      */
     public void dfs() {
+    	
+   
 	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
+	 
+		for (Tree<T> child : children) {
+	     if(child.children!=null) {
+	    	 System.out.print("----");
+    		 System.out.println(child.value);
+    		 for (Tree<T> childrenschild : child.children) {
+		     if(childrenschild.children!=null) {
+		    	 System.out.print("--------");
+	    		 System.out.println(childrenschild.value);
+		     }
+	     }
+	    }
 	}
-    }
+	}
+    
 
     public static void main(String[] args) {
 
