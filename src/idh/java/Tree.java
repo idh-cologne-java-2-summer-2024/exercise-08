@@ -65,14 +65,25 @@ public class Tree<T> {
     public Set<Tree<T>> children() {
 	return children;
     }
+    
+    
+    public void dfs() {
+        dfs(0);
+    }
+    
+    
 
     /**
      * Iterate over the tree, printing out each node value
      */
-    public void dfs() {
+    public void dfs(int spacing) {
+    	 for (int i = 0; i < spacing; i++) {
+    		 System.out.print("  "); // Indentation using two spaces
+    	 }
 	System.out.println(this.value);
+	
 	for (Tree<T> child : children) {
-	    child.dfs();
+		child.dfs(spacing + 1);
 	}
     }
 
