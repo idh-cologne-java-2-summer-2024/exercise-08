@@ -36,8 +36,8 @@ public class Tree<T> {
      */
     public Tree(T value, Collection<Tree<T>> children) {
 	this.value = value;
-	this.children = new HashSet<Tree<T>>(children);
-    }
+	this.children = new HashSet<Tree<T>>(children);}
+    
 
     /**
      * Return the payload value of this tree node
@@ -69,12 +69,14 @@ public class Tree<T> {
     /**
      * Iterate over the tree, printing out each node value
      */
-    public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
+    public void dfs (String indent) {
+    	System.out.println(indent+ this.value);
+    	for (Tree <T> child:children) {
+    			child.dfs(indent+ " ");
+    	}
+    	
 	}
-    }
+    
 
     public static void main(String[] args) {
 
@@ -89,7 +91,7 @@ public class Tree<T> {
 	bike.children().add(tandem);
 	bike.children().add(ebike);
 
-	wheeled_vehicle.dfs();
+	wheeled_vehicle.dfs("");
     }
 
 }
