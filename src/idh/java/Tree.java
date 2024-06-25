@@ -22,21 +22,21 @@ public class Tree<T> {
      * @param value The payload value
      */
     public Tree(T value) {
-	this.value = value;
-	this.children = new HashSet<Tree<T>>();
+        this.value = value;
+        this.children = new HashSet<Tree<T>>();
     }
 
     /**
      * Constructs a new tree with children.
      * 
-     * @param value    The payload value
+     * @param value The payload value
      * @param children The children. Note that children are represented as set
-     *                 internally, i.e., each child node is unique. Also note that
-     *                 the children are of type Tree<T>.
+     * internally, i.e., each child node is unique. Also note that
+     * the children are of type Tree<T>.
      */
     public Tree(T value, Collection<Tree<T>> children) {
-	this.value = value;
-	this.children = new HashSet<Tree<T>>(children);
+        this.value = value;
+        this.children = new HashSet<Tree<T>>(children);
     }
 
     /**
@@ -45,7 +45,7 @@ public class Tree<T> {
      * @return The payload value
      */
     public T get() {
-	return value;
+        return value;
     }
 
     /**
@@ -54,7 +54,7 @@ public class Tree<T> {
      * @param value The new value
      */
     public void set(T value) {
-	this.value = value;
+        this.value = value;
     }
 
     /**
@@ -63,33 +63,46 @@ public class Tree<T> {
      * @return
      */
     public Set<Tree<T>> children() {
-	return children;
+        return children;
     }
 
     /**
-     * Iterate over the tree, printing out each node value
+     * Iterate over the tree, printing out each node value with indentation
      */
     public void dfs() {
-	System.out.println(this.value);
-	for (Tree<T> child : children) {
-	    child.dfs();
-	}
+        dfs(0);
+    }
+
+    /**
+     * Private helper method for dfs with indentation
+     * 
+     * @param depth The current depth of the node in the tree
+     */
+    private void dfs(int depth) {
+        // Print the current node value with indentation
+        for (int i = 0; i < depth; i++) {
+            System.out.print("    "); // 4 spaces for each level of depth
+        }
+        System.out.println(this.value);
+
+        // Recurse for each child with increased depth
+        for (Tree<T> child : children) {
+            child.dfs(depth + 1);
+        }
     }
 
     public static void main(String[] args) {
+        Tree<String> ebike = new Tree<String>("e-bike");
+        Tree<String> tandem = new Tree<String>("tandem");
+        Tree<String> bike = new Tree<String>("bike");
+        Tree<String> buggy = new Tree<String>("buggy");
+        Tree<String> wheeled_vehicle = new Tree<String>("wheeled vehicle");
 
-	Tree<String> ebike = new Tree<String>("e-bike");
-	Tree<String> tandem = new Tree<String>("tandem");
-	Tree<String> bike = new Tree<String>("bike");
-	Tree<String> buggy = new Tree<String>("buggy");
-	Tree<String> wheeled_vehicle = new Tree<String>("wheeled vehicle");
+        wheeled_vehicle.children().add(bike);
+        wheeled_vehicle.children().add(buggy);
+        bike.children().add(ebike);
+        bike.children().add(tandem);
 
-	wheeled_vehicle.children().add(bike);
-	wheeled_vehicle.children().add(buggy);
-	bike.children().add(tandem);
-	bike.children().add(ebike);
-
-	wheeled_vehicle.dfs();
+        wheeled_vehicle.dfs();
     }
-
 }
