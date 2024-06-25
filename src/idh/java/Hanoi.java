@@ -152,7 +152,19 @@ public class Hanoi {
     }
 
     private void movePieces(int numberOfPieces, char from, char to, char util) {
-	// TODO: Implement me!
+    	if (numberOfPieces > 0) {
+    		// move n-1 pieces from 'from' to 'util' using 'to' as auxiliary
+    		movePieces(numberOfPieces - 1, from, util, to);
+    		
+    		// move the remaining piece from 'from' to 'to'
+    		movePiece(from, to);
+    		
+    		// print the board state after each move
+    		System.out.println(this);
+    		
+    		// move the n-1 pieces from 'util' to 'to' using 'from' as auxiliary
+    		movePieces(numberOfPieces - 1, util, to, from);
+    	}
     }
 
 }
