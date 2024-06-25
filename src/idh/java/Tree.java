@@ -66,13 +66,26 @@ public class Tree<T> {
 	return children;
     }
 
+    public boolean hasChildren() {
+    	return !this.children.isEmpty();
+    }
+    
     /**
      * Iterate over the tree, printing out each node value
      */
     public void dfs() {
-	System.out.println(this.value);
+    int c = 0;
+    System.out.println(this.value);
+    if (this.hasChildren()) {
+    	c++;
+    } else { 
+    	c--;
+    }
+    for (int i = 0; i < c; i++) {
+    	System.out.print("\t");
+    }
 	for (Tree<T> child : children) {
-	    child.dfs();
+		child.dfs();
 	}
     }
 
@@ -90,6 +103,7 @@ public class Tree<T> {
 	bike.children().add(ebike);
 
 	wheeled_vehicle.dfs();
+	System.out.println(tandem.hasChildren());
     }
 
 }
