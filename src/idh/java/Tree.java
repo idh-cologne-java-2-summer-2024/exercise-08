@@ -74,14 +74,19 @@ public class Tree<T> {
 		int path = 0; // How deep are we in the tree, path-lenght
 		int depth = 0; // tree depth-level
 		String space = " ";
+		
+		
 		System.out.println(this.value);
 		for (Tree<T> child : children) {
-			if (this.children.contains(child)) {
+			if(child==null) {
+				return;
+			}	
+			if (this.children.contains(child) && child.value != null) {
 				System.out.print(space);
 				child.dfs();
-			}else if(this.children.isEmpty()) {
-				//TODO: Change branch when no more children, but I'll also need to go back to root before going down another branch/path
-				
+			}else {
+				System.out.println("Test");
+				return;
 			}
 		}
 	}
