@@ -36,4 +36,8 @@ public class MyTree<T> {
 	public MyTree<T> getParent(){
 		return parent;
 	}
+	@Override
+	public String toString() {
+		return (String) this.data;
+	}
 }

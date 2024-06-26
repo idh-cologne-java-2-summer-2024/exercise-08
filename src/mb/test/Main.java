@@ -10,7 +10,8 @@ public class Main {
 		baum1.children.get(1).addChild("Taro");
 		
 //		baum1.children.addChild()
-		System.out.println(baum1.children.get(0).getChilden());
+		System.out.println(baum1.children.get(0).children);
+		System.out.println(baum1.children.get(1).getChilden());
 		
 	}
 
