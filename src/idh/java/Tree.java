@@ -36,9 +36,20 @@ public class Tree<T> {
     }
 
     public void dfs(int indent) {
+	// There are multiple options here, all are fine
+	// Option 1:
 	for (int i = 0; i < indent; i++)
 	    System.out.print(' ');
 	System.out.println(this.value);
+
+	// Option 2:
+	// System.out.print(" ".repeat(indent));
+	// System.out.println(this.value);
+
+	// Option 3:
+	// System.out.println(" ".repeat(indent) + this.value);
+
+	// Regular iteration over the children
 	for (Tree<T> child : children) {
 	    child.dfs(indent + 1);
 	}
